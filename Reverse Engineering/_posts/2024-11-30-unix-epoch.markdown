@@ -51,7 +51,7 @@ you know how it is when curiosity strikes. Somewhere in the back of my mind, it 
 
 Here is a visualization of how my mind tries to stack up questions one by one.
 
-<img src="https://lh3.googleusercontent.com/pw/AP1GczMLhNJxOyiIAEsD9LPik5BODkMmj4m7O8s-5U_2z8rKTNZrY8GCQA1GiANUO-xoerE-Zz1bfQd1aIwrAHYqcFEqtG282pitU92y7Vrdh_MrU_Z_vUeLEV9hoKe6n0OHDzNHlvC7oYVa_Una6WKn_imA=w548-h386-s-no" />
+<img alt="Mind Visualization Stack" src="https://lh3.googleusercontent.com/pw/AP1GczMLhNJxOyiIAEsD9LPik5BODkMmj4m7O8s-5U_2z8rKTNZrY8GCQA1GiANUO-xoerE-Zz1bfQd1aIwrAHYqcFEqtG282pitU92y7Vrdh_MrU_Z_vUeLEV9hoKe6n0OHDzNHlvC7oYVa_Una6WKn_imA=w548-h386-s-no" />
 
 In this blog, Let's dig deeper.
 
@@ -69,7 +69,7 @@ To convince my questions, I said to myslef:
 
 A moment after this, I thought: what should be the reference point to all these numbers? and I get an answer that it's January 1, 1970. Oh boy!
 
-<img src="https://lh3.googleusercontent.com/pw/AP1GczMGtUuS3XsMJgo8r_boFO-cUfw_Hy3_tXawNOoqlexjY_ax5kD9JiN2DY-VlUjv3c_kSpZzRzV7bZqBFG_DZufrMJtg15DuravBepfIDOPwz6M-Ix2NOVeRuwQxrS3a_8qIzvXfMQHWRgV_hqWl651u=w548-h386-s-no" />
+<img alt="Mind Visualization Stack" src="https://lh3.googleusercontent.com/pw/AP1GczMGtUuS3XsMJgo8r_boFO-cUfw_Hy3_tXawNOoqlexjY_ax5kD9JiN2DY-VlUjv3c_kSpZzRzV7bZqBFG_DZufrMJtg15DuravBepfIDOPwz6M-Ix2NOVeRuwQxrS3a_8qIzvXfMQHWRgV_hqWl651u=w548-h386-s-no" />
 
 ### Why January 1, 1970?
 
@@ -134,7 +134,7 @@ It wasn't arbitrary. When unix was being developed in the late 1960s, the engine
 
 ### Integer Overflow
 
-<img src="https://steamuserimages-a.akamaihd.net/ugc/854975340501406948/419F40761A85D6277540D8D7292E12D339400684/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" />
+<img alt="Breaking Bad - Say My Name" src="https://steamuserimages-a.akamaihd.net/ugc/854975340501406948/419F40761A85D6277540D8D7292E12D339400684/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" />
 
 In Unix systems, time is stored as the number of seconds elapsed since the Epoch. This is implemented using a `signed 32-bit integer`, which can represent numbers from `-2,147,483,648` to `2,147,483,647`.
 
