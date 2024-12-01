@@ -163,6 +163,7 @@ When this C program runs on 32-bit systems, it overflows with the signed integer
 - To completely avoid the issue, migrate the 32-bit systems to 64-bit systems
 - Use an alternative time format that doesn't rely on the 32 bit integer tracking
 
+> - Before using the time module in your code, verify if the system is running on 32-bit or 64-bit architecture to avoid potential timestamp overflow issues.
 > - This brings to an end. I hope this help developers grasp the importance of understanding what a function is truly intended to do and how it can affect systems.
 > - asking yourself - what, why and understanding the fundamentals, their functionality, limitations, and potential impacts will serve you well in the long run.
 {: .prompt-tip }
