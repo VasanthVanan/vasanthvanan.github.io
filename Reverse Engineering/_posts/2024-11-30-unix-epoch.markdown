@@ -13,8 +13,8 @@ tags: ["unix epoch", "integer overflow", "python", "c", "Y2K"]
 
 ### Pre-Context
 
-I was working on a software development project in python, where I needed to grab the current timestamp and find the difference from some given timestamp. Simple, right?
-Like everybody & chatgpt, I imported the trustworthy `time` module and used `time()` function to retrieve the current time in UTC.
+I was working on a software development project in python, where I needed to grab the current timestamp and find the difference from a given timestamp. Simple, right?
+Like many others, including ChatGPT, I imported the `time` module and used `time()` function to retrieve the current time in UTC.
 
 And what did I get? Not the human readable format: `2024-12-01 00:14:35 UTC`, oh no. I got a random number that looked like this:
 
@@ -28,7 +28,7 @@ print(int(time.time())) # returns int with [seconds]
 1733012075
 ```
 
-Okay, a quick fix using `datetime` module with `utcfromtimestamp` function worked like a charm.
+A quick fix using `datetime` module with `utcfromtimestamp` function worked like a charm.
 
 ```python
 import time
@@ -39,7 +39,7 @@ datetime.utcfromtimestamp(int(time.time())).strftime('%Y-%m-%d %H:%M:%S UTC')
 2024-12-01 00:14:35 UTC
 ```
 
-Okay! That issue is resolved, and I can now focus on other development tasks. Yet, deep down, I can't help but wonder — what's really happening under the hood?
+Alright! That issue is resolved, and I can now focus on other development tasks. Yet, deep down, I can't help but wonder — what's really happening under the hood?
 
 you know how it is when curiosity strikes. Somewhere in the back of my mind, it yelled -- <mark>Why we do What we do?</mark>
 
@@ -56,18 +56,18 @@ Here is a visualization of how my mind tries to stack up questions one by one.
 In this blog, Let's dig deeper.
 
 - The `2024-12-01 00:14:35 UTC` date format is a human readable format but computers don't understand that. All they know is binaries (0s and 1s).
-- Every thing related to computers like Large Language Models (LLMs), rely on numbers, math, and transformers that assign numerical weights to decide the next occuring word.
-- Similarly, whenever you deal with computers, you need to tone down and narrow down to some form of numbers specifically 0s and 1s.
+- Every thing related to computers like Large Language Models (LLMs), relies on numbers, math, and transformers that assign numerical weights to decide the next word.
+- Similarly, whenever you deal with computers, you need to tone down and narrow things down to numbers specifically 0s and 1s.
 - For instance, dates are often represented as strings (`utcfromtimestamp`) which are stored as integers (`time`), which are ultimately sequences of binary digits.
 
 > These date numbers are language-neutral, machine-readable and can be used for mathematical operations like additions or subtractions to calculate different dates.
 {: .prompt-tip }
 
-To convince my questions, I said to myslef:
+To convince myself, I said:
 
 > *"Those random numbers are necessary to represent time data using integers for simplicity, precision, and accuracy."*
 
-A moment after this, I thought: what should be the reference point to all these numbers? and I get an answer that it's January 1, 1970. Oh boy!
+A moment after this, I thought: What should be the reference point to all these numbers? and I get an answer that it's January 1, 1970. Oh boy!
 
 <img alt="Mind Visualization Stack" src="https://lh3.googleusercontent.com/pw/AP1GczMGtUuS3XsMJgo8r_boFO-cUfw_Hy3_tXawNOoqlexjY_ax5kD9JiN2DY-VlUjv3c_kSpZzRzV7bZqBFG_DZufrMJtg15DuravBepfIDOPwz6M-Ix2NOVeRuwQxrS3a_8qIzvXfMQHWRgV_hqWl651u=w548-h386-s-no" />
 
@@ -149,20 +149,20 @@ printf("%d", overflow_time);
 > -2147483648
 {: .prompt-danger }
 
-When this C program is ran on 32-bit systems, it overflows with the signed integer dealing with boundary values and prints the smallest value of the 32 bit integer which may be misinterpreted as December 13, 1901.
+When this C program runs on 32-bit systems, it overflows with the signed integer dealing with boundary values and prints the smallest value of the 32 bit integer which may be misinterpreted as December 13, 1901.
 
 ### Potential Impact
 
 - After January 2038, legacy systems in banking, aviation, healthcare, and embedded systems that still use 32-bit time representations will face issues, potentially crashing or misbehaving.
-- Unix Epoch will no longer be valid implementation or use after the deadline and developer should come up with new implementations
-- However it is very unlikely to impact the 64 bit systems that has larger range of values.
-- firmware and hardware level changes should be done via add on hardware or extending the 32 bit limits
+- Unix Epoch will no longer be valid implementation and developer will need to come up with new approaches
+- However it is very unlikely to impact the 64 bit systems which has larger range of values (over billions).
+- firmware and hardware level changes need to be done via add on hardware or extending the 32 bit limits
 
 ### Mitigations
 
 - To completely avoid the issue, migrate the 32-bit systems to 64-bit systems
 - Use an alternative time format that doesn't rely on the 32 bit integer tracking
 
-> - I hope this blog help developers grasp the importance of understanding what a function is truly intended to do and how it can affect systems.
+> - This brings to an end. I hope this help developers grasp the importance of understanding what a function is truly intended to do and how it can affect systems.
 > - asking yourself - what, why and understanding the fundamentals, their functionality, limitations, and potential impacts will serve you well in the long run.
 {: .prompt-tip }
